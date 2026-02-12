@@ -48,3 +48,20 @@ async def stripe_webhook(request: Request):
         supabase_service.webhook_log_insert(webhook_log)
 
     return {"status": "success"}
+
+
+@router.get("/webhooks")
+async def listar_webhooks():
+    """
+    Lista todos os webhooks salvos no banco de dados.
+    """
+
+    supabase_service = SupabaseService()
+
+    # Busca todos os registros
+    response = supabase_service.client.table('webhook_log').select('*').execute()
+
+    return {
+        "total": len(response.data),
+        "webhooks": response.data
+    }
