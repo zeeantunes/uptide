@@ -1,0 +1,7 @@
+fastapi==0.115.5            # framework principal
+uvicorn[standard]==0.30.6   # servidor ASGI de desenvolvimento/produção
+python-dotenv==1.0.1        # carregar variáveis do .env
+
+stripe==9.8.0               # SDK oficial Stripe (utilizado em app/services/stripe.py)
+supabase                    # Cliente Supabase-py (utilizado em app/services/supabase.py)
+pydantic-settings==2.2.1    # Leitura de settings do .env (utilizado em app/core/config.py)
